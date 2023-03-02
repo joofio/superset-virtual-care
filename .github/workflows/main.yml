@@ -1,11 +1,8 @@
 name: Docker Image CI
 
 on:
-  #release:
-  push:
-    branches: [ main ]
-  #pull_request:
-  #  branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'
 
 jobs:
 
@@ -26,6 +23,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         cache: ${{ github.event_name != 'schedule' }}
         snapshot: true
-        tags: "latest"
+        tags: "latest-dev"
         workdir: .
-        buildargs: GIT_COMMIT
+ #       buildargs: GIT_COMMIT

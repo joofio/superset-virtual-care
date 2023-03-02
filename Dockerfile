@@ -1,4 +1,5 @@
-FROM apache/superset:2.0.0-dev
+#FROM apache/superset:2.0.0-dev
+FROM apache/superset:latest-dev
 
 #using 2.0.0-dev due to  https://github.com/apache/superset/issues/22326
 USER root
