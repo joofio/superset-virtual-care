@@ -8,7 +8,8 @@ USER root
 
 RUN  apt-get update -y \
         && apt-get install -y --no-install-recommends \
-            	    wget \
+        wget \ 
+        git \
 	    unzip \ 
         libaio1 \
         && rm -rf /var/lib/apt/lists/*
