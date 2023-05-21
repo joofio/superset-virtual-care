@@ -23,21 +23,21 @@ RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantcli
 RUN   unzip instantclient-basiclite-linuxx64.zip 
 RUN    rm -f instantclient-basiclite-linuxx64.zip 
 RUN ls
-RUN    cd instantclient_21_9 && \
+RUN    cd instantclient_21_10 && \
 mkdir lib && \
 cp libc* lib/ && \
 cp libo* lib/ && \
 cp libn* lib/ && \
     rm -f *jdbc* *occi* *mysql* *jar uidrvci genezi adrci && \
-    echo /instantclient_21_9 > /etc/ld.so.conf.d/oracle-instantclient.conf && \
-        echo /instantclient_21_9/lib > /etc/ld.so.conf.d/oracle-instantclient.conf && \
+    echo /instantclient_21_10 > /etc/ld.so.conf.d/oracle-instantclient.conf && \
+        echo /instantclient_21_10/lib > /etc/ld.so.conf.d/oracle-instantclient.conf && \
     ldconfig
 RUN pwd
 
 ENV TERM=vt100
-ENV ORACLE_HOME="/instantclient_21_9"
-ENV LD_LIBRARY_PATH="/instantclient_21_9"
-RUN export PATH=$PATH:/instantclient_21_9
+ENV ORACLE_HOME="/instantclient_21_10"
+ENV LD_LIBRARY_PATH="/instantclient_21_10"
+RUN export PATH=$PATH:/instantclient_21_10
 
 RUN pip install cx_Oracle
 RUN pip install --force-reinstall git+https://github.com/benoitc/gunicorn.git@master
